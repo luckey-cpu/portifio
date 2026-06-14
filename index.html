@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio of Lakshit Asopa — Student & Aspiring Web Developer." />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Lakshit Asopa — Personal Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="loader-ring"></div>
+    <p class="loader-text">Loading portfolio…</p>
+  </div>
+
+  <!-- Particle background canvas -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="logo" aria-label="Lakshit Asopa home">
+      <span class="logo-mark">LA</span>
+      <span class="logo-text">Lakshit Asopa</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#achievements" class="nav-link">Awards</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="themeBtn" class="icon-btn" aria-label="Toggle dark mode" aria-pressed="false">
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+      </button>
+      <button id="paletteBtn" class="icon-btn" aria-label="Open theme customizer" aria-expanded="false">
+        <i class="fa-solid fa-palette" aria-hidden="true"></i>
+      </button>
+      <button id="menuBtn" class="icon-btn menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Theme palette popover -->
+    <div id="palette" class="palette" role="dialog" aria-label="Accent color picker" hidden>
+      <p class="palette-title">Accent color</p>
+      <div class="palette-swatches">
+        <button class="swatch" data-accent="violet" style="--c:#7c3aed" aria-label="Violet"></button>
+        <button class="swatch" data-accent="blue" style="--c:#2563eb" aria-label="Blue"></button>
+        <button class="swatch" data-accent="emerald" style="--c:#10b981" aria-label="Emerald"></button>
+        <button class="swatch" data-accent="rose" style="--c:#f43f5e" aria-label="Rose"></button>
+        <button class="swatch" data-accent="amber" style="--c:#f59e0b" aria-label="Amber"></button>
+        <button class="swatch" data-accent="cyan" style="--c:#06b6d4" aria-label="Cyan"></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="hero" class="hero" aria-labelledby="heroTitle">
+      <div class="hero-inner">
+        <div class="hero-text reveal">
+          <p class="eyebrow"><span class="dot"></span> Open to learning & collaboration</p>
+          <h1 id="heroTitle">
+            Hi, I'm <span class="grad">Lakshit Asopa</span><br />
+            I'm a <span id="typed" class="typed" aria-live="polite"></span><span class="caret" aria-hidden="true">|</span>
+          </h1>
+          <p class="lede">
+            I'm a passionate student and aspiring web developer who loves building
+            clean, responsive websites with HTML, CSS, and JavaScript.
+          </p>
+          <div class="cta-row">
+            <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> View Projects</a>
+            <a href="#contact" class="btn btn-ghost"><i class="fa-regular fa-envelope"></i> Contact Me</a>
+            <button id="resumeBtn" class="btn btn-outline" type="button"><i class="fa-solid fa-file-arrow-down"></i> Resume</button>
+          </div>
+          <div class="hero-socials" aria-label="Social links">
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="hero-photo reveal">
+          <div class="photo-wrap glass">
+            <div class="photo-orb"></div>
+            <div class="photo-initials" aria-hidden="true">LA</div>
+            <div class="photo-badge"><i class="fa-solid fa-code"></i> Developer</div>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-hint" aria-label="Scroll to about section">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="aboutTitle">
+      <header class="section-head reveal">
+        <p class="kicker">01 — About</p>
+        <h2 id="aboutTitle">A bit about me</h2>
+      </header>
+
+      <div class="about-grid">
+        <div class="glass card about-card reveal">
+          <h3>Who I am</h3>
+          <p>
+            I'm a dedicated student and aspiring web developer with a strong
+            foundation in HTML, CSS, and JavaScript. I enjoy crafting responsive,
+            user-friendly websites and constantly learning new technologies to
+            improve my skills.
+          </p>
+          <h3>Interests & hobbies</h3>
+          <ul class="pill-list">
+            <li>Coding</li><li>Web design</li><li>Problem solving</li>
+            <li>Reading</li><li>Tech blogs</li><li>Open source</li>
+          </ul>
+          <h3>Career objective</h3>
+          <p>
+            To become a skilled web developer who builds modern, accessible,
+            and performant websites — and contributes meaningfully to the tech community.
+          </p>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat glass"><span class="stat-num" data-count="4">0</span><span>Projects</span></div>
+          <div class="stat glass"><span class="stat-num" data-count="3">0</span><span>Core skills</span></div>
+          <div class="stat glass"><span class="stat-num" data-count="100">0</span><span>Percent passion</span></div>
+          <div class="stat glass"><span class="stat-num" data-count="1">0</span><span>Goal: first role</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section" aria-labelledby="eduTitle">
+      <header class="section-head reveal">
+        <p class="kicker">02 — Education</p>
+        <h2 id="eduTitle">My academic journey</h2>
+      </header>
+
+      <ol class="timeline">
+        <li class="t-item reveal">
+          <div class="t-dot"></div>
+          <div class="glass card">
+            <p class="t-date">Present</p>
+            <h3>Student</h3>
+            <p class="t-place">School / College</p>
+            <p>Currently studying and building projects to strengthen my web development skills.</p>
+          </div>
+        </li>
+        <li class="t-item reveal">
+          <div class="t-dot"></div>
+          <div class="glass card">
+            <p class="t-date">Self-Learning</p>
+            <h3>Web Development</h3>
+            <p class="t-place">Online Resources</p>
+            <p>Mastered HTML, CSS, JavaScript, and Responsive Design through hands-on practice and projects.</p>
+          </div>
+        </li>
+        <li class="t-item reveal">
+          <div class="t-dot"></div>
+          <div class="glass card">
+            <p class="t-date">Continuous</p>
+            <h3>Certifications & Learning</h3>
+            <p class="t-place">freeCodeCamp, YouTube, GitHub</p>
+            <p>Always learning — building real projects, contributing to open source, and sharpening my craft.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section" aria-labelledby="skillsTitle">
+      <header class="section-head reveal">
+        <p class="kicker">03 — Skills</p>
+        <h2 id="skillsTitle">What I work with</h2>
+      </header>
+
+      <div class="skills-grid">
+        <article class="glass card skill-cat reveal">
+          <div class="cat-head"><i class="fa-solid fa-code"></i><h3>Frontend</h3></div>
+          <div class="bar"><span>HTML</span><div class="track"><i data-pct="95"></i></div></div>
+          <div class="bar"><span>CSS</span><div class="track"><i data-pct="90"></i></div></div>
+          <div class="bar"><span>JavaScript</span><div class="track"><i data-pct="85"></i></div></div>
+          <div class="bar"><span>Responsive Design</span><div class="track"><i data-pct="88"></i></div></div>
+        </article>
+
+        <article class="glass card skill-cat reveal">
+          <div class="cat-head"><i class="fa-solid fa-server"></i><h3>Tools & Workflow</h3></div>
+          <div class="bar"><span>Git & GitHub</span><div class="track"><i data-pct="82"></i></div></div>
+          <div class="bar"><span>VS Code</span><div class="track"><i data-pct="90"></i></div></div>
+          <div class="bar"><span>Chrome DevTools</span><div class="track"><i data-pct="78"></i></div></div>
+          <div class="bar"><span>Netlify / GitHub Pages</span><div class="track"><i data-pct="75"></i></div></div>
+        </article>
+
+        <article class="glass card skill-cat reveal">
+          <div class="cat-head"><i class="fa-solid fa-people-group"></i><h3>Soft Skills</h3></div>
+          <div class="bar"><span>Communication</span><div class="track"><i data-pct="90"></i></div></div>
+          <div class="bar"><span>Teamwork</span><div class="track"><i data-pct="88"></i></div></div>
+          <div class="bar"><span>Problem solving</span><div class="track"><i data-pct="92"></i></div></div>
+          <div class="bar"><span>Self-learning</span><div class="track"><i data-pct="95"></i></div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section" aria-labelledby="projTitle">
+      <header class="section-head reveal">
+        <p class="kicker">04 — Projects</p>
+        <h2 id="projTitle">Selected work</h2>
+      </header>
+
+      <div class="filters reveal" role="tablist" aria-label="Filter projects">
+        <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="chip" data-filter="web" role="tab" aria-selected="false">Web</button>
+        <button class="chip" data-filter="form" role="tab" aria-selected="false">Form</button>
+        <button class="chip" data-filter="landing" role="tab" aria-selected="false">Landing</button>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project glass reveal" data-cat="web">
+          <div class="project-media" style="--g:linear-gradient(135deg,#7c3aed,#06b6d4)">
+            <div class="overlay">
+              <a href="#" class="btn btn-sm"><i class="fa-brands fa-github"></i> Code</a>
+              <a href="#" class="btn btn-sm btn-primary"><i class="fa-solid fa-up-right-from-square"></i> Live</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Portfolio Website</h3>
+            <p>My personal portfolio showcasing projects, skills, and contact info with a modern glassmorphism design.</p>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </div>
+        </article>
+
+        <article class="project glass reveal" data-cat="form">
+          <div class="project-media" style="--g:linear-gradient(135deg,#f43f5e,#f59e0b)">
+            <div class="overlay">
+              <a href="#" class="btn btn-sm"><i class="fa-brands fa-github"></i> Code</a>
+              <a href="#" class="btn btn-sm btn-primary"><i class="fa-solid fa-up-right-from-square"></i> Live</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Job Application Form</h3>
+            <p>A clean, accessible multi-step job application form with validation and responsive layout.</p>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </div>
+        </article>
+
+        <article class="project glass reveal" data-cat="landing">
+          <div class="project-media" style="--g:linear-gradient(135deg,#10b981,#2563eb)">
+            <div class="overlay">
+              <a href="#" class="btn btn-sm"><i class="fa-brands fa-github"></i> Code</a>
+              <a href="#" class="btn btn-sm btn-primary"><i class="fa-solid fa-up-right-from-square"></i> Live</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Responsive Landing Page</h3>
+            <p>A fully responsive product landing page built with Flexbox and CSS Grid for all screen sizes.</p>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>Responsive</li></ul>
+          </div>
+        </article>
+
+        <article class="project glass reveal" data-cat="web">
+          <div class="project-media" style="--g:linear-gradient(135deg,#0ea5e9,#a855f7)">
+            <div class="overlay">
+              <a href="#" class="btn btn-sm"><i class="fa-brands fa-github"></i> Code</a>
+              <a href="#" class="btn btn-sm btn-primary"><i class="fa-solid fa-up-right-from-square"></i> Live</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Blog Website</h3>
+            <p>A simple, readable blog layout with article cards, categories, and a clean typographic hierarchy.</p>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="section" aria-labelledby="achTitle">
+      <header class="section-head reveal">
+        <p class="kicker">05 — Achievements</p>
+        <h2 id="achTitle">Recognitions & milestones</h2>
+      </header>
+
+      <div class="ach-grid">
+        <div class="glass card ach reveal"><i class="fa-solid fa-trophy"></i><h3>Portfolio Built</h3><p>Designed and developed a fully responsive personal portfolio from scratch.</p></div>
+        <div class="glass card ach reveal"><i class="fa-solid fa-certificate"></i><h3>Self-Taught Developer</h3><p>Learned HTML, CSS, JavaScript, and Responsive Design through dedicated self-study.</p></div>
+        <div class="glass card ach reveal"><i class="fa-solid fa-medal"></i><h3>Multiple Projects</h3><p>Completed several real-world projects including forms, landing pages, and a blog.</p></div>
+        <div class="glass card ach reveal"><i class="fa-solid fa-users"></i><h3>GitHub Active</h3><p>Maintaining repositories, practicing version control, and sharing code openly.</p></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section" aria-labelledby="servTitle">
+      <header class="section-head reveal">
+        <p class="kicker">06 — Services</p>
+        <h2 id="servTitle">How I can help</h2>
+      </header>
+
+      <div class="services-grid">
+        <article class="glass card service reveal"><i class="fa-solid fa-globe"></i><h3>Web Development</h3><p>Responsive, accessible websites built with clean HTML, CSS, and JavaScript.</p></article>
+        <article class="glass card service reveal"><i class="fa-solid fa-pen-ruler"></i><h3>Landing Pages</h3><p>High-conversion landing pages designed with modern layouts and great typography.</p></article>
+        <article class="glass card service reveal"><i class="fa-solid fa-display"></i><h3>Responsive Design</h3><p>Layouts that look great on mobile, tablet, and desktop using Flexbox and Grid.</p></article>
+        <article class="glass card service reveal"><i class="fa-solid fa-lightbulb"></i><h3>Problem Solving</h3><p>Breaking down requirements into clean, working code one feature at a time.</p></article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-labelledby="conTitle">
+      <header class="section-head reveal">
+        <p class="kicker">07 — Contact</p>
+        <h2 id="conTitle">Let's build something together</h2>
+      </header>
+
+      <div class="contact-grid">
+        <aside class="glass card contact-card reveal">
+          <h3>Lakshit Asopa</h3>
+          <p class="muted">Student | Aspiring Web Developer</p>
+          <ul class="contact-list">
+            <li><i class="fa-regular fa-envelope"></i> lakshit.asopa@email.com</li>
+            <li><i class="fa-solid fa-location-dot"></i> India</li>
+          </ul>
+          <div class="hero-socials">
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </aside>
+
+        <form class="glass card contact-form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cname">Your name</label>
+            <input id="cname" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="cemail">Email address</label>
+            <input id="cemail" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="cmsg">Message</label>
+            <textarea id="cmsg" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary"><i class="fa-regular fa-paper-plane"></i> Send message</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Lakshit Asopa. Crafted with care.</p>
+  </footer>
+
+  <button id="toTop" class="to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
